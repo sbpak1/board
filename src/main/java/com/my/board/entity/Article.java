@@ -22,8 +22,10 @@ public class Article {
     private String content;
 
     @OneToMany(fetch = FetchType.LAZY,
-    mappedBy = "article",
+feat/getAllArticleData
+            mappedBy = "article",
             cascade = {CascadeType.PERSIST,
-            CascadeType.REMOVE})
+                    CascadeType.REMOVE})
     List<Comment> comments = new ArrayList<>();
 }
+

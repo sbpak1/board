@@ -5,6 +5,7 @@ import com.my.board.entity.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +26,9 @@ public class ArticleDto {
                 article.getTitle(),
                 article.getContent(),
                 article.getComments()
-                        .stream()
-                        .map(x -> CommentDto.fromComment(x))
-                        .toList());
-
-
-
-
+                        .stream().map(x -> CommentDto.fromComment(x))
+                        .toList()
+        );
     }
 
     // DTO -> Article

@@ -19,14 +19,14 @@ public class RedirectController {
 
     @GetMapping("page")
     public String pageView(Model model) {
-//        model.addAttribute("msg", "Model로 보낸 값");
+        model.addAttribute("msg", "Model로 보낸 값");
         return "/test/page";
     }
 
     @RequestMapping(value = "requestMapping",
             method = RequestMethod.GET)
-    // Spring 5.0 이하 버전에서 사용
-    // Spring 5.0 이상은 @GetMapping 사용 가능
+    // Spring 5.0 아래 버전에서 사용
+    // Spring 5.0 이상은  @GetMapping 사용 가능
     public String requestMapping(Model model) {
         model.addAttribute("msg", "RequestMapping");
         return "/test/page";
@@ -41,18 +41,17 @@ public class RedirectController {
 
     @GetMapping("redirectView")
     public String redirectView(RedirectAttributes redirectAttributes) {
-        String msg = "redirectView";
+        String msg = "RedirectView";
         redirectAttributes.addFlashAttribute("state", msg);
         return "redirect:page";
     }
 
     @GetMapping("delete")
     public RedirectView delete(RedirectAttributes redirectAttributes) {
-        String msg = "redirectView";
+        String msg = "RedirectView";
         redirectAttributes.addFlashAttribute("state", msg);
         return new RedirectView("/mapping");
     }
-
     @GetMapping("naver")
     public String naver() {
         return "redirect:https://naver.com";

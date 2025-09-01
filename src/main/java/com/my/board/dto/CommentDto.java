@@ -27,6 +27,5 @@ public class CommentDto {
         comment.setNickname(dto.getNickname());
         comment.setBody(dto.getBody());
         return comment;
-
     }
 }
